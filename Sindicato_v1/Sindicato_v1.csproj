@@ -239,6 +239,7 @@
     <Compile Include="Controllers\ReportAgremiadoController.cs" />
     <Compile Include="Controllers\ReportDeduccionesController.cs" />
     <Compile Include="Controllers\ReportPDFActasController.cs" />
+    <Compile Include="Controllers\ReportPDFCorrespondenciaController.cs" />
     <Compile Include="Controllers\ReportPDFNoticiasController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\SolicitudController.cs" />
@@ -332,6 +333,7 @@
     <Compile Include="Models\ViewModels\AddActasViewModel.cs" />
     <Compile Include="Models\ViewModels\AddAgremiadoViewModel.cs" />
     <Compile Include="Models\ViewModels\AddCompaniaViewModel.cs" />
+    <Compile Include="Models\ViewModels\AddcorrespondenciaViewModel.cs" />
     <Compile Include="Models\ViewModels\AddDeduccionesViewModel.cs" />
     <Compile Include="Models\ViewModels\AddECivilViewModel.cs" />
     <Compile Include="Models\ViewModels\AddEmpleadosViewModel.cs" />
@@ -339,6 +341,7 @@
     <Compile Include="Models\ViewModels\AddRolesViewModel.cs" />
     <Compile Include="Models\ViewModels\AddTipoActaViewModel.cs" />
     <Compile Include="Models\ViewModels\AgremiadosInfoEntity.cs" />
+    <Compile Include="Models\ViewModels\CorrespondenciaInfoEntity.cs" />
     <Compile Include="Models\ViewModels\EditGestionesViewModel.cs" />
     <Compile Include="Models\ViewModels\EditPerfilViewModel.cs" />
     <Compile Include="Models\ViewModels\PublicHoliday.cs" />
@@ -1953,6 +1956,9 @@
     <Content Include="Views\TipoActa\Mant_TipoActa.cshtml" />
     <Content Include="Views\TipoActa\Nuevo_TipoActa.cshtml" />
     <Content Include="Views\TipoActa\Editar_TipoActa.cshtml" />
+    <Content Include="Views\ReportPDFCorrespondencia\ShowCorrespondencia.cshtml" />
+    <Content Include="Views\ReportPDFCorrespondencia\PDFCorrespondencia.cshtml" />
+    <Content Include="Views\ReportPDFCorrespondencia\Editar_Correspondencia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

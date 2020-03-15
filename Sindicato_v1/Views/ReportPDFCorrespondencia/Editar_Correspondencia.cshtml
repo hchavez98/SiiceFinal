@@ -1,0 +1,173 @@
+﻿
+@model Sindicato_v1.Models.ViewModels.AddcorrespondenciaViewModel
+
+@{
+    ViewBag.Title = "Editar_Correspondencia";
+}
+
+<link href="~/Content/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
+<br />
+<br />
+<br />
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/Home/Index/">SIICE</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="~/Agremiado/Agremiados">Agremiados</a></li>
+                <li><a href="~/Deducciones/BusquedaDeduccion">Deducciones</a></li>
+                <li><a href="~/ReportPDFActas/ShowActas">Actas</a></li>
+                <li><a href="~/ReportPDFNoticias/ShowNoticias">Noticias</a></li>
+                <li><a href="~/Gestiones/Gestiones">Gestiones</a></li>
+                <li><a>Hola, @ViewData["Nombre"] @ViewData["Apellido"]</a></li>
+                <li><a href="~/Usuario/close_session"><span class="glyphicon glyphicon-log-out"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<ul class="breadcrumb">
+    <li><a href="/Home/Index/">SIICE - Inicio</a></li>
+    <li><a href="/Usuario/Administrador/">Administrativo</a></li>
+    <li>Actas</li>
+</ul>
+
+<div>
+    <h2>Edicion de correspondencia</h2>
+    <h5>Ingrese la informacion de la correspondencia que desee editar</h5>
+</div>
+
+@using (Html.BeginForm("Editar_Correspondencia", "ReportPDFCorrespondencia", FormMethod.Post))
+{
+
+    <div class="form-horizontal">
+        <hr class="hr-custom" />
+        <div class="form-group">
+            <div class="col-lg-12">
+                @Html.HiddenFor(Model => Model.id_Correspondencia)
+                <div>
+                    @Html.LabelFor(model => model.titulo_Correspondencia)
+                    @Html.EditorFor(model => model.titulo_Correspondencia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.titulo_Correspondencia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                @Html.HiddenFor(Model => Model.id_Correspondencia)
+                <div>
+                    @Html.LabelFor(model => model.subtitulo_Correspondencia)
+                    @Html.EditorFor(model => model.subtitulo_Correspondencia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.subtitulo_Correspondencia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                @Html.HiddenFor(Model => Model.id_Correspondencia)
+                <div>
+                    @Html.LabelFor(model => model.contenido_Correspondencia)
+                    @Html.EditorFor(model => model.contenido_Correspondencia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.contenido_Correspondencia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validationEngine-en.js"></script>
+<script src="~/Scripts/jquery.validationEngine.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#errores").validationEngine();
+
+    });
+
+    $("#errores").validationEngine({ promptPosition: "topleft:-100" });
+</script>
+<script>
+    jQuery(document).ready(function () {
+        jQuery("#errores").validationEngine();
+    });
+</script>
+
+
+@if (ViewBag.Msg == "Agregado")
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            swal({
+                title: "Confirmación",
+                text: "¡Se agregó exitosamente!",
+                icon: "success"
+            });
+        }
+    </script>
+}
+
+@if (ViewBag.Msg == "Modificado")
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            swal({
+                title: "Confirmación",
+                text: "¡Se modificó exitosamente!",
+                icon: "info"
+            });
+        }
+    </script>
+}
+
+@if (ViewBag.Msg == "Eliminado")
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            swal({
+                title: "Confirmación",
+                text: "¡Se eliminó exitosamente!",
+                icon: "warning"
+            });
+        }
+    </script>
+}
+
+@if (ViewBag.Msg == "Error")
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            swal({
+                title: "ERROR",
+                text: "¡Este elemento no se puede eliminar porque está siendo utilizado!",
+                icon: "error"
+            });
+        }
+    </script>
+}
+
+<script type="text/javascript">
+    function DeleteConfirm() {
+        if (confirm("¿Eliminar este registro?"))
+            return true;
+        else
+            return false;
+    }
+</script>
+
